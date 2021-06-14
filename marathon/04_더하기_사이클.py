@@ -5,15 +5,35 @@
 # 첫째 줄에 N이 주어진다. N은 0보다 크거나 같고, 99보다 작거나 같은 정수이다.
 # 첫째 줄에 N의 사이클 길이를 출력한다.
 
-num_input = int(input())
-result = num_input
+# 1차
+# num_input = int(input())
+# result = num_input
+# count = 0
+# while True:
+#     count += 1
+#     right = result % 10
+#     sum = (result // 10) + right
+#     sum_right = sum % 10
+#     result = int(str(right) + str(sum_right))
+#     if result == num_input:
+#         break
+# print(count)
+
+# 2차
+input_val = int(input())
+answer = input_val
 count = 0
 while True:
     count += 1
-    right = result % 10
-    sum = (result // 10) + right
-    sum_right = sum % 10
-    result = int(str(right) + str(sum_right))
-    if result == num_input:
+    left = answer // 10
+    right = answer % 10
+    input_sum = left + right
+    # print('input_sum', input_sum)
+    sum_right = input_sum % 10
+    result = (right * 10) + sum_right
+    # print('result', result)
+    if result == input_val:
         break
+    else:
+        answer = result
 print(count)

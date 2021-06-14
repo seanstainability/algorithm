@@ -5,12 +5,24 @@
 
 h, m = map(int, input().split())
 
-if m < 45:
-    h-=1
-    if(h < 0): h = 23
-    m+=60
-    m = m - 45
-else:
-    m = m - 45
+# 1차
+# if m < 45:
+#     h-=1
+#     if(h < 0): h = 23
+#     m+=60
+#     m = m - 45
+# else:
+#     m = m - 45
+#
+# print(h, m)
 
-print(h, m)
+# 2차
+if m > 44:
+    print(h, m-45)
+else:
+    if h > 0:
+        print(h-1, m+15)
+    else:
+        print(23, m+15)
+
+
