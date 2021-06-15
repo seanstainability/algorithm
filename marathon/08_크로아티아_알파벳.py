@@ -5,3 +5,9 @@
 # 단어는 크로아티아 알파벳으로 이루어져 있다. 문제 설명의 표에 나와있는 알파벳은 변경된 형태로 입력된다.
 # 입력으로 주어진 단어가 몇 개의 크로아티아 알파벳으로 이루어져 있는지 출력한다.
 
+alphabet = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+word_input = input()
+cnt = 0
+for i in alphabet:
+    word_input = word_input.replace(i, '*')
+print(len(word_input))
