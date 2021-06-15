@@ -3,27 +3,15 @@
 # 첫째 줄에 이 단어에서 가장 많이 사용된 알파벳을 대문자로 출력한다. 단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
 
 word = input().upper()
+word_list = list(set(word))
+cnt_list = []
+for i in word_list:
+    cnt = word.count(i)
+    cnt_list.append(cnt)
 
-occurrence_array = [0] * 26
-
-for char in word:
-    idx = ord(char) - ord('A')
-    occurrence_array[idx] += 1
-
-max_occurrence = 0
-max_idx = None
-is_repeat = False
-for idx, occurrence in enumerate(occurrence_array):
-    if max_occurrence < occurrence:
-        max_occurrence = occurrence
-        max_idx = idx
-        is_repeat = False
-    elif max_occurrence == occurrence:
-        is_repeat = True
-    else:
-        is_repeat = False
-
-if is_repeat is True:
+if cnt_list.count(max(cnt_list)) > 1:
     print('?')
 else:
-    print(chr(max_idx + ord('A')))
+    max_idx = cnt_list.index(max(cnt_list))
+    print(word_list[max_idx])
+
